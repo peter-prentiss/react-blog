@@ -5,12 +5,9 @@ class PostsNew extends Component {
     renderField(field) {
         return (
             <div className="form-group">
-            <label>{field.label}</label>
-                <input 
-                    {...field.input} 
-                    type="text"
-                    className="form-control"
-                />
+                <label>{field.label}</label>
+                <input {...field.input} type="text" className="form-control"/>
+                {field.meta.error}
             </div>
         )
     }
@@ -33,10 +30,10 @@ function validate(values) {
         errors.title = "Please enter a title that is at least 3 characters";
     }
     if (!values.categories) {
-        errors.title = "Enter some categories";
+        errors.categories = "Enter some categories";
     }
     if (!values.content) {
-        errors.title = "Enter some content, please";
+        errors.content = "Enter some content, please";
     }
 
     return errors;
